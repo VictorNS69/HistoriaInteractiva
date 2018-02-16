@@ -36,12 +36,7 @@ def keyboardInterruptText():
 	print("\n")
 	print(color("¿Ya te vas?", fg="blue", style="bold"))
 	sleep(1)
-	print(color("Espero que te lo hayas pasado bien.", fg="blue", style="bold"))
-	sleep(1.5)
-	print(color("El autor:", fg="white", style="bold"))
-	sleep(1)
-	print(color("Victor Nieves Sanchez.", fg="blue", style="bold+italic+underline"))
-	sleep(1)
+	byeInfo()
 
 def byeInfo():
 	print(color("Espero que te lo hayas pasado bien.", fg="blue", style="bold"))
@@ -63,5 +58,7 @@ def displayImage(description, image):
 	gameDisplay.fill(white)
 	gameDisplay.blit(img, (0, 0))
 	pygame.display.update()
-	sleep(5)
+	#time.sleep(2)	
+	sleep(2)
 	pygame.quit()
+
