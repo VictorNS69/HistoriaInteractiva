@@ -108,7 +108,7 @@ def continuation1():
 	backend.sleep(1)
 	backend.sayToUser("Te bebes un vasito de leche con Nesquick.")
 	backend.sleep(1)
-	backend.sayDialogue("(PORQUE EL  COLACAO ES UNA PUTA MIERDA)")
+	backend.sayDialogue("(PORQUE EL COLACAO ES UNA PUTA MIERDA)")
 	backend.sleep(0.7)
 	backend.sayToUser("Te vas a la cama y te duermes ipso facto.")
 	backend.sleep(1)
@@ -122,7 +122,7 @@ def continuation1():
 	backend.sleep(0.5)
 	backend.sayToUser("Te despiertas en una habitación, pero no es la tuya. ")
 	backend.sleep(1)
-	backend.sayDialogue("¿Dónde coño te acostaste anoche? ¿Era tu casa?")
+	backend.sayToUser("¿Dónde coño te acostaste anoche? ¿Era tu casa?")
 	backend.sleep(1)
 	backend.sayToUser("Como sea. Te pones a mirar a tu alrededor.") 
 	backend.sleep(1)
@@ -141,7 +141,6 @@ def continuation1():
 	backend.sayToUser("Entras en la máquina.")
 	backend.sleep(1)
 	
-
 def insertName():
 	return backend.askToUser("Te pide que introduzcas tu nombre:")
 	
@@ -208,6 +207,42 @@ def continuation2():
 	backend.sleep(1)
 	return answer
 
+def continuation3(name):
+	backend.sayDialogue("- ¡BURP! ¡Mierda!, tengo que encontrar a mi Morty y completar esta misión.")
+	backend.sleep(1.5)
+	backend.sayDialogue("¡El tiempo corre! Veo que esta nave está estropeada. Ayúdame a encontrar a Morty y yo te arreglaré la nave.")
+	backend.sleep(1.5)
+	backend.sayToUser("Tu aceptas.")
+	backend.sleep(1)
+	backend.sayDialogue("- Entonces… ¿Cómo te  ¡BURP! llamas?")
+	backend.sleep(1)
+	backend.sayToUser("Le dices tu nombre.")
+	backend.sleep(1)
+	backend.sayDialogue("- Bien, " +name+ " ¡Busquemos a Mor-¡BURP!-ty! ¡Ah! Por cierto, coge algún arma de esa bolsa.")
+	backend.sleep(1.5)
+
+def chooseItem2():
+	backend.sayToUser("Abres la bolsa y te encuentras una serie de objetos.")
+	backend.sleep(1)
+	backend.sayToUser("¿Cuál eliges?")
+	backend.sleep(1)
+	#backend.displayImage("1) Nada", "images/nada.png")
+	backend.displayImage("2) Pistola de rayos", "images/prayos.png")
+	backend.displayImage("3) La caja misteriosa", "images/mbox.jpg")
+	item = backend.askToUser("1) No coger nada.\n2) Coger una pistola de rayos marca ACME.\n3) Coger la caja misteriosa.")
+	while item != "1" and item !="2" and item !="3":
+		backend.nonValidAnswer()
+		item = backend.askToUser("1) No coger nada.\n2) Coger una pistola de rayos marca ACME.\n3) Coger la caja misteriosa.")
+	backend.sleep(1)
+	if item == "1":
+		item = "Nada"
+	elif item == "2":
+		item = "Pistola de rayos"
+	else:
+		item = "Caja misteriosa"
+	backend.sayToUser("Eliges como item: " + item + ".")
+	return item
+
 def chooseItem1():
 	backend.sayDialogue("- Bien, Morty ¡BURP!, continuemos con nuestra misión.")
 	backend.sleep(1)
@@ -234,6 +269,57 @@ def chooseItem1():
 	backend.sayToUser("Eliges como item: " + item + ".")
 	return item
 
+def continuationNoMorty(name, item):
+	backend.sayDialogue("- Vale, " +name+ ", cuando me separé de Morty, íbamos de camino a aquel edificio de allí." )
+	backend.sleep(1.5)
+	backend.sayDialogue("Según una fuente de confianza, el objetivo de nuestra misión está allí.")
+	backend.sleep(1.5)
+	backend.sayDialogue("¡BURP! Esperemos que el estúpido de Morty consiga llegar allí.")
+	backend.sleep(1.5)
+	backend.sayToUser("En la puerta del edificio al que se refería Rick, os encontráis con Morty.")
+	backend.sleep(1.5)
+	backend.sayDialogue("- Oh.. oh… Rick. Estaba muy asustado. Pensaba que iba a tener que hacer el trabajo yo solo. Y ademá…")
+	backend.sleep(2)
+	backend.sayDialogue("- ¡Joder Morty!¡Cállate ya! ")
+	backend.sleep(1)
+	if item == "Nada":
+		backend.sayToUser("Vais dirección a la azotea.")
+		backend.sleep(1)
+		backend.sayToUser("Allí está Adolfo Rick.")
+		backend.sleep(1)
+		backend.sayToUser("Por suerte, está lo suficiente \"mecedora\" y no os ve llegar.")
+		backend.sleep(1)
+		backend.sayToUser("¡Rick dispara!")
+		backend.sleep(1)
+		backend.sayToUser("Adolfo Rick muere en el acto.")
+		backend.sleep(1)
+
+	else:
+		#Pistola y caja
+		backend.sayDialogue("¡Tú! " +name+ " ¡BURP! dale lo que cogiste a Morty")
+		backend.sleep(1)
+		backend.sayToUser("Le das la " +item+ " a Morty.")
+		backend.sleep(1)
+		backend.sayDialogue("- ¡BURP! Bien chicos, subamos a la azotea. Allí tiene que estar nuestro objetivo, Adolfo Rick.")
+		backend.sayDialogue("Ese maldito hijo de pu-¡BURP! Está intentando dominar este universo con su ejercito de Mortys arios.")
+		backend.sleep(2)
+		backend.sayToUser("Subis a la azotea, y allí esta Adolfo Rick.")
+		backend.sayToUser("Empieza un tiroteo entre ambos Rick, en el cual el nuestro queda herido y deja caer su pistola de rayos.")
+		backend.sleep(2)
+		if item == "Pistola de rayos":
+			backend.sayDialogue("- ¡JODER! Morty, es tu momento. ¡Dispara!")
+			backend.sleep(1)
+			backend.sayToUser("Morty dispara a Adolfo Rick, el cual muere de un disparo limpio.")
+			backend.sleep(1.5)
+		else:
+			backend.sayDialogue("- ¡JODER! Morty, es tu momento. ¡Usa la caja!")
+			backend.sleep(1)
+			backend.sayToUser("Morty abre la caja misteriosa, encontrando una botella de licor.")	
+			backend.sleep(1.5)
+			backend.sayToUser("Se la lanza a Rick, y este se tira tal eructo que, de la fuerza del mismo, empuja a Adolfo Rick con la fortuna de que cae por el balcñon y muere en el acto.")
+			backend.sleep(3)
+	ending()
+	
 def continuationMorty(item):
 	backend.sayDialogue("- Vale Morty, como ya sabes, nuestra misión ¡BURP! es asesinar a ... ")
 	backend.sleep(1)
@@ -268,16 +354,19 @@ def continuationMorty(item):
 	backend.sleep(1)
 	backend.sayToUser("Rick sale herido y pierde el arma.")
 	backend.sleep(1)
-	backend.sayToUser("¡Es tu momento! ")
 	if item == "Nada":
 		backend.sayToUser("Un Morty ario se confunde y salva a nuestro Rick (recibiendo un disparo a camara lenta) pensando que era su compañero.")
 		backend.sleep(2)
 		backend.sayToUser("Rick consigue hacerse con el arma de ese Morty y consigue disparar entre ceja y ceja de Adolfo Lincoln.")
 		backend.sleep(2)
 	elif item == "Pistola de rayos":
+		backend.sayToUser("¡Es tu momento! ")
+		backend.sleep(1)
 		backend.sayToUser("Sacas la pistola de rayos que habías cogido y disparas a Adolfo Lincoln.")
 		backend.displayImage("Pistola de rayos", "images/prayos.png")
 	else: #caja misteriosa
+		backend.sayToUser("¡Es tu momento! ")
+		backend.sleep(1)
 		backend.sayToUser("Abres la caja misteriosa y dentro hay un licor especial.")
 		backend.displayImage("La caja misteriosa", "images/mbox.jpg")
 		backend.displayImage("La botella de dentro", "images/vodka.jpg")
@@ -291,7 +380,7 @@ def continuationMorty(item):
 		backend.sleep(1)
 		backend.sayToUser("Os encontraís con Morty, The Real Morty.")
 		backend.displayImage("Morty", "images/morty.png")
-		backend.sayDialogue("-¡BURP! Pero que coño está pasando Morty, bueno, ¡BURP! Mortys.")
+		backend.sayDialogue("- ¡BURP! Pero que coño está pasando Morty, bueno, ¡BURP! Mortys.")
 		backend.sleep(1.5)
 		backend.sayToUser("¿Le dices la verdad?")
 		answer = backend.askToUser("1) Si.\n2) No.")
@@ -312,7 +401,7 @@ def contarVerdad(nombre):
 	backend.sleep(1.5)
 	backend.sayDialogue("Así podrás volver a casa.")
 	backend.sleep(1)
-	goodEnding()
+	ending()
 
 def noContarVerdad():
 	backend.sayToUser("Rick, temiendo que ese Morty sea un Morty enemigo, le dispara con la pistola de rayos. ")
@@ -340,7 +429,7 @@ def noContarVerdad():
 		backend.sleep(1)
 		backend.sayToUser("Rick te repara la nave, y ya puedes volver a ella.")
 		backend.sleep(1)
-		goodEnding()
+		ending()
 	else:	
 		backend.sayToUser("Sutilmente, le pides a Rick que eche un vistazo a la nave en la que te encontró. ")
 		backend.sleep(1.5)
@@ -356,9 +445,9 @@ def noContarVerdad():
 		backend.sleep(1)
 		backend.sayToUser("Rick arregló la nave y tú, a sus espaldas te montaste en ella y te largaste. ")
 		backend.sleep(1.5)
-		goodEnding()
+		ending()
 
-def goodEnding():
+def ending():
 	backend.sayToUser("Montas en la nave.")
 	backend.sleep(1)
 	backend.sayToUser("De nuevo, te pide que elijas un destino.")
@@ -374,6 +463,19 @@ def goodEnding():
 	backend.sayToUser("... o no ...")
 	backend.sleep(1)
 	backend.byeInfo()
+
+def goodEnding2():
+	backend.sayToUser("Ya saliendo del edificio donde había muerto Adolfo Rick.")
+	backend.sleep(1)
+	backend.sayDialogue("- ¡BURP!¡Bien hecho " + nombre+ " y Morty!")
+	backend.sleep(1)
+	backend.sayDialogue("Ahora reparemos esa nave tuya y podremos volver todos a casa.")
+	backend.sleep(1.5)
+	backend.sayToUser("Rick repara tu nave")
+	backend.sleep(1)
+	backend.sayToUser("Una vez reparada, te preparas para marcharte.")
+	backend.sleep(1)
+	ending()
 
 def main():
 	try:
@@ -395,12 +497,15 @@ def main():
 				gameData.lastAnswer = continuationMorty(gameData.item)
 				if gameData.lastAnswer == '1':
 					contarVerdad(gameData.name)
+					sys.exit(0)
 				else:
 					noContarVerdad()
+					sys.exit(0)
 			else:
-				print("PASSSSSSS")
-				pass
-				#2 no eres morty
+				continuation3(gameData.name)
+				gameData.item = chooseItem2()
+				continuationNoMorty(gameData.name, gameData.item)
+				sys.exit(0)
 	except KeyboardInterrupt:
 		backend.keyboardInterruptText()
 

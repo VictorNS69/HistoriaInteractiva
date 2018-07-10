@@ -30,7 +30,7 @@ def nonValidAnswer():
 	print(color("¡Elige una opcion valida coño!", fg='red'))
 
 def sleep(t):
-	time.sleep(0) # 0 -> t 
+	time.sleep(t) 
 
 def keyboardInterruptText():
 	print("\n")
