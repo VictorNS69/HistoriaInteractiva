@@ -8,7 +8,9 @@ Esta pequeña historia es inventada por mi. La única finalidad de este "juego" 
 
 ### Como jugar
 1- Descargar todos los archivos
+
 2- Dar permisos de ejecución a "controller"
+
 3- Ejecutar "controller"
 
 ### Disclaimer
