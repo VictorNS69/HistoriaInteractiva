@@ -285,13 +285,13 @@ def continuationNoMorty(name, item):
 	if item == "Nada":
 		backend.sayToUser("Vais dirección a la azotea.")
 		backend.sleep(1)
-		backend.sayToUser("Allí está Adolfo Rick.")
+		backend.sayToUser("Allí está Adolfo Lincoln.")
 		backend.sleep(1)
 		backend.sayToUser("Por suerte, está lo suficiente \"mecedora\" y no os ve llegar.")
 		backend.sleep(1)
 		backend.sayToUser("¡Rick dispara!")
 		backend.sleep(1)
-		backend.sayToUser("Adolfo Rick muere en el acto.")
+		backend.sayToUser("Adolfo Lincoln muere en el acto.")
 		backend.sleep(1)
 
 	else:
@@ -300,23 +300,23 @@ def continuationNoMorty(name, item):
 		backend.sleep(1)
 		backend.sayToUser("Le das la " +item+ " a Morty.")
 		backend.sleep(1)
-		backend.sayDialogue("- ¡BURP! Bien chicos, subamos a la azotea. Allí tiene que estar nuestro objetivo, Adolfo Rick.")
+		backend.sayDialogue("- ¡BURP! Bien chicos, subamos a la azotea. Allí tiene que estar nuestro objetivo, Adolfo Lincoln.")
 		backend.sayDialogue("Ese maldito hijo de pu-¡BURP! Está intentando dominar este universo con su ejercito de Mortys arios.")
 		backend.sleep(2)
-		backend.sayToUser("Subis a la azotea, y allí esta Adolfo Rick.")
+		backend.sayToUser("Subis a la azotea, y allí esta Adolfo Lincoln.")
 		backend.sayToUser("Empieza un tiroteo entre ambos Rick, en el cual el nuestro queda herido y deja caer su pistola de rayos.")
 		backend.sleep(2)
 		if item == "Pistola de rayos":
 			backend.sayDialogue("- ¡JODER! Morty, es tu momento. ¡Dispara!")
 			backend.sleep(1)
-			backend.sayToUser("Morty dispara a Adolfo Rick, el cual muere de un disparo limpio.")
+			backend.sayToUser("Morty dispara a Adolfo Lincoln, el cual muere de un disparo limpio.")
 			backend.sleep(1.5)
 		else:
 			backend.sayDialogue("- ¡JODER! Morty, es tu momento. ¡Usa la caja!")
 			backend.sleep(1)
 			backend.sayToUser("Morty abre la caja misteriosa, encontrando una botella de licor.")	
 			backend.sleep(1.5)
-			backend.sayToUser("Se la lanza a Rick, y este se tira tal eructo que, de la fuerza del mismo, empuja a Adolfo Rick con la fortuna de que cae por el balcñon y muere en el acto.")
+			backend.sayToUser("Se la lanza a Rick, y este se tira tal eructo que, de la fuerza del mismo, empuja a Adolfo Lincoln con la fortuna de que cae por el balcñon y muere en el acto.")
 			backend.sleep(3)
 	ending()
 	
@@ -465,7 +465,7 @@ def ending():
 	backend.byeInfo()
 
 def goodEnding2():
-	backend.sayToUser("Ya saliendo del edificio donde había muerto Adolfo Rick.")
+	backend.sayToUser("Ya saliendo del edificio donde había muerto Adolfo Lincoln.")
 	backend.sleep(1)
 	backend.sayDialogue("- ¡BURP!¡Bien hecho " + nombre+ " y Morty!")
 	backend.sleep(1)
